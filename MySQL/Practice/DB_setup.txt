@@ -1,0 +1,6 @@
+db server: bgl-krklnx-12.synamedia.com
+	port: 3308
+	db: testdb
+	login: root/password
+	
+Python3: connector - mysql-connector-python

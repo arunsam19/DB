@@ -1,0 +1,12 @@
+DBMS:
+
+User   <=>   DBMS	=> DB
+
+DBMS:
+Types:	Releational, NoSQL (Non-relational)
+
+Rel-> SQL query is used
+	RDBMS -> MySQL (Most popular Open source DB), SQL Server, Oracle.
+
+Non-rel: 
+	No SQL: No tables. Don't understand SQL.

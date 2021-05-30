@@ -1,0 +1,143 @@
+Extra:
+=======================================================================================================================================================================================
+=======================================================================================================================================================================================
+
+mysql login:
+============
+mysql -u root -p
+Enter password:
+
+ALTER USER 'root'@'localhost' IDENTIFIED BY 'password';
+
+Table: 
+======
+CREATE TABLE student (
+    student_id INT,
+    name VARCHAR(20),
+    major VARCHAR(20),
+    PRIMARY KEY(student_id)
+);
+
+DESCRIBE student;
+
+DROP TABLE student;
+
+ALTER TABLE student ADD gpa DECIMAL(3, 2);
+
+ALTER TABLE student DROP COLUMN gpa;
+
+Inserting Data:
+---------------
+INSERT INTO student VALUES(1, 'Jack', 'Biology');
+INSERT INTO student VALUES(2, 'Kate', 'Sociology');
+INSERT INTO student VALUES(3, 'John, 'Chemistry');
+INSERT INTO student VALUES(4, 'Jack', 'Biology');
+INSERT INTO student VALUES(5, 'Kate', 'CS');
+
+Constraints:
+============
+CREATE TABLE student (
+    student_id INT,
+    name VARCHAR(20) NOT NULL,
+    major VARCHAR(20) UNIQUE,
+    PRIMARY KEY(student_id)
+);
+
+INSERT INTO student VALUES(1, 'Jack', 'Biology');
+INSERT INTO student VALUES(2, 'Kate', 'Sociology');
+INSERT INTO student VALUES(3, 'Jack', 'Chemistry');
+INSERT INTO student VALUES(4, 'Jack', 'Biology');
+INSERT INTO student VALUES(5, 'Kate', 'CS');
+
+CREATE TABLE student (
+    student_id INT AUTO_INCREMENT,
+    name VARCHAR(20) ,
+    major VARCHAR(20) DEFAULT 'undecided',
+    PRIMARY KEY(student_id)
+);
+
+INSERT INTO student(student_id, name) VALUES(1, 'Jack');
+
+INSERT INTO student(name, major) VALUES('Jack', 'Biology');
+INSERT INTO student(name, major) VALUES('Kate', 'CS');
+
+=======================================================================================================================================================================================
+Some extras: https://www.edureka.co/blog/sql-constraints/
+https://www.tutorialspoint.com/sql/sql-constraints.htm
+=======================================================================================================================================================================================
+Rules for the data in table.
+Limit which type of data must be stored 
+Aims to increase accuracy and reliability of the data.
+Makes sure no violation in terms of transactions of data, else action gets terminated.
+
+Types:
+------
+1. Column-level Constraints
+2. Table-level constraints
+
+NOT NULL Constraint − Ensures that a column cannot have NULL value.
+
+DEFAULT Constraint − Provides a default value for a column when none is specified.
+
+UNIQUE Constraint − Ensures that all values in a column are different.
+
+PRIMARY Key − Uniquely identifies each row/record in a database table.
+
+FOREIGN Key − Uniquely identifies a row/record in any of the given database table.
+
+CHECK Constraint − The CHECK constraint ensures that all the values in a column satisfies certain conditions.
+**** Supports after MySQL 8.0.16 or later
+
+INDEX − Used to create and retrieve data from the database very quickly.
+=======================================================================================================================================================================================
+
+UPDATE:
+--------
+UPDATE student 
+SET major = 'BioChemistry'
+WHERE major = 'Biology' OR major = 'Chemistry';
+
+UPDATE student 
+SET major='Maths';
+
+Basic Queries:
+--------------
+
+SELECT * 
+FROM student
+ORDER BY major, student_id DESC
+LIMIT 3;
+
+
+SELECT * 
+FROM student
+ORDER BY student_id
+LIMIT 3;
+
+SELECT name
+FROM student
+WHERE major = 'Chemistry' OR name = 'John' ;
+
+SELECT name, major
+FROM student
+WHERE student_id < 3 OR name = 'Jack';
+
+SELECT name, major
+FROM student
+WHERE major IN ('Biology', 'Chemistry');
+
+-- <, >, <=, >=, =, <>, AND, OR
+
+
+
+
+
+
+
+
+
+
+
+
+
+
